@@ -43,6 +43,7 @@ function setup(p: p5) {
   setInterval(() => {
     shots.availableShots++;
   }, 1000);
+  // hier kann ich die Nachladegeschwindigkeit eingeben (in milisek.)
 
   setInterval(() => {
     if (speed > 20) speed -= 10;
@@ -163,7 +164,7 @@ function keyPressed(p: p5) {
       /*
       lasers.push(new Laser(p, spaceship.x + 15, spaceship.y));
       lasers.push(new Laser(p, spaceship.x - 15, spaceship.y));
-      *
+      */
     }
   }
 }
