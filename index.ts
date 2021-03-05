@@ -43,7 +43,7 @@ function setup(p: p5) {
   setInterval(() => {
     shots.availableShots++;
   }, 1000);
- 
+
   setInterval(() => {
     if (speed > 20) speed -= 10;
   }, 2000);
@@ -153,8 +153,7 @@ function keyPressed(p: p5) {
       Sounds.laser.currentTime = 0;
       Sounds.laser.play();
       lasers.push(new Laser(p, spaceship.x, spaceship.y));
-    }
-    else if  (p.keyIsDown(13) && shots.availableShots >= 2) {
+    } else if (p.keyIsDown(13) && shots.availableShots >= 2) {
       shots.availableShots -= 2;
       Sounds.powershot.currentTime = 0;
       Sounds.powershot.play();
@@ -162,8 +161,6 @@ function keyPressed(p: p5) {
       lasers.push(new Laser(p, spaceship.x + 5, spaceship.y));
       lasers.push(new Laser(p, spaceship.x + 15, spaceship.y));
       lasers.push(new Laser(p, spaceship.x - 15, spaceship.y));
-     
-      
     }
   }
 }
