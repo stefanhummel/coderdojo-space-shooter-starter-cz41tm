@@ -159,8 +159,11 @@ function keyPressed(p: p5) {
       Sounds.powershot.play();
       lasers.push(new Laser(p, spaceship.x - 5, spaceship.y));
       lasers.push(new Laser(p, spaceship.x + 5, spaceship.y));
+
+      /*
       lasers.push(new Laser(p, spaceship.x + 15, spaceship.y));
       lasers.push(new Laser(p, spaceship.x - 15, spaceship.y));
+      *
     }
   }
 }
