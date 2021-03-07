@@ -145,7 +145,7 @@ function keyPressed(p: p5) {
   if (
     shots.availableShots > 0 &&
     p.frameCount > lastShot + 7 &&
-    (p.keyIsDown(32) || p.keyIsDown(13))
+    (p.keyIsDown(32) || p.keyIsDown(13) || p.keyIsDown(16))
   ) {
     lastShot = p.frameCount;
 
@@ -154,17 +154,22 @@ function keyPressed(p: p5) {
       Sounds.laser.currentTime = 0;
       Sounds.laser.play();
       lasers.push(new Laser(p, spaceship.x, spaceship.y));
-    } else if (p.keyIsDown(13) && shots.availableShots >= 2) {
+    }
+    if (p.keyIsDown(13) && shots.availableShots >= 2) {
       shots.availableShots -= 2;
       Sounds.powershot.currentTime = 0;
       Sounds.powershot.play();
       lasers.push(new Laser(p, spaceship.x - 5, spaceship.y));
       lasers.push(new Laser(p, spaceship.x + 5, spaceship.y));
-
-      /*
-      lasers.push(new Laser(p, spaceship.x + 15, spaceship.y));
-      lasers.push(new Laser(p, spaceship.x - 15, spaceship.y));
-      */
+    }
+    if (p.keyIsDown(16) && shots.availableShots >= 4) {
+      shots.availableShots -= 4;
+      Sounds.megashot.currentTime = 0;
+      Sounds.megashot.play();
+      lasers.push(new Laser(p, spaceship.x - 5, spaceship.y));
+      lasers.push(new Laser(p, spaceship.x + 5, spaceship.y));
+      lasers.push(new Laser(p, spaceship.x + 12.5, spaceship.y));
+      lasers.push(new Laser(p, spaceship.x - 12.5, spaceship.y));
     }
   }
 }
